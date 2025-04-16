@@ -1,0 +1,108 @@
+// ==================
+// PALETA DE COLORES
+// ==================
+
+// COLORES BASE
+$primary-color: #6b7280; // Color principal: gris oscuro
+$secondary-color: #334155; // Color secundario: gris más profundo
+$background-color: #ffffff; // Fondo general (blanco)
+$background-secondary-color: #f5eedc; // Fondo secundario cálido, ideal para secciones alternas
+$background-form: lighten(#c6e7ff, 10%); // Fondo para formularios, aclarado un 10%
+
+// COLORES DE TEXTO
+$text-color: #0f172a; // Texto principal, muy oscuro para buena legibilidad
+$text-hover: #3b4c5e; // Color del texto al hacer hover
+$text-active: #1e2a35; // Color del texto cuando está activo
+$secondary-text-color: #606d80; // Texto secundario, gris azulado
+$text-link: #dda853; // Color para enlaces secundarios
+$text-link-lighten: lighten(#dda853, 10%); // Color para enlaces, aclarado un 10%
+$text-register-light: #d4f6ff; // Color claro para textos de registro (casi blanco azulado)
+$text-register-light-d: darken(#d4f6ff, 30%); // Versión oscura del texto claro (30% más oscuro)
+$text-register-light-dd: darken(#d4f6ff, 45%); // Versión aún más oscura (45%)
+$text-list: #d5c7a3; // Color para listas
+$text-list-hover: darken(#d5c7a3, 15%); // Color para listas al hacer hover (15% más oscuro)
+
+// COLORES DE FONDO INTERACTIVOS
+$hover-color: #f0f0f0; // Fondo al pasar el mouse (hover)
+$active-color: #e0e0e0; // Fondo activo, un gris ligeramente más intenso
+
+// COLORES DE BOTONES
+$button-background: $text-color; // Fondo del botón por defecto (oscuro)
+$button-background-hover: darken($button-background, 10%); // Fondo del botón en hover (10% más oscuro)
+$button-text: #f7f9fb; // Texto de botones (casi blanco)
+$button-disabled: #aab7c4; // Fondo para botones deshabilitados (gris claro)
+$button-bg-light: #d4f6ff; // Fondo para botones de estilo light
+$button-bg-light-d: darken(#d4f6ff, 30); // Versión oscura (30% más oscuro)
+$button-bg-light-dd: darken(#d4f6ff, 45); // Versión aún más oscura (45%)
+
+// ICONOS
+$icon-color: $secondary-color; // Color base para íconos
+$icon-color-dark: darken($icon-color, 10%); // Versión 10% más oscura del color de ícono
+$icon-color-like: #e62e1b; // Color para íconos de "me gusta" (bermellón)
+$icon-hover-color: #d5c7a3; // Color al hacer hover sobre íconos
+$icon-link-light: #d4f6ff; // Color para íconos o enlaces claros
+
+// ==================
+// TAMAÑOS
+// ==================
+
+
+// ==================
+// ESPACIADOS ESCALABLES
+// ==================
+$spacing-xs: 4px; // Espaciado extra pequeño
+$spacing-sm: $spacing-xs * 2; // 8px (pequeño)
+$spacing-md: $spacing-xs * 4; // 16px (mediano)
+$spacing-lg: $spacing-xs * 6; // 24px (grande)
+$spacing-xl: $spacing-xs * 8; // 32px (extra grande)
+$spacing-xxl: $spacing-xs * 12; // 48px (doblemente extra grande)
+
+// ==================
+// HEADER / NAVBAR
+// ==================
+$header-background: $background-color; // Fondo del header (blanco)
+$header-text-color: $text-color; // Texto del header (oscuro)
+$header-link-color: $text-hover; // Color de enlaces en el header
+$header-link-hover-color: darken($text-hover, 10%); // Hover para enlaces (10% más oscuro)
+$header-link-active: $text-active; // Enlace activo en el header
+$header-circle: #e62e1b; // Color destacado (por ejemplo, íconos)
+$header-border-color: #f7f9fb; // Línea inferior del header
+
+// ==================
+// FOOTER
+// ==================
+
+$footer-background: #0f172a; // Fondo muy oscuro para el pie de página
+$footer-text-color: #dda853; // Color de texto en el footer
+// ==================
+// HOME
+// ==================
+$home-background:#ffddae;
+// ==================
+// BORDES Y SOMBRAS
+// ==================
+// BORDES
+$border-radius-sm: 4px;  // Radio pequeño
+$border-radius: 8px;     // Radio base
+$border-radius-lg: 12px; // Radio grande
+$border-radius-xl: 20px; // Radio extra grande
+$border-radius-xxl: 30px; // Radio ultra grande
+
+// SOMBRAS
+$shadow-color-light: rgba(0, 0, 0, 0.1);   // Sombra ligera para elementos sutiles
+$shadow-color-medium: rgba(0, 0, 0, 0.15);   // Sombra media
+$shadow-color-strong: rgba(0, 0, 0, 0.2);      // Sombra intensa para elementos destacados
+$border-light: 1px solid $shadow-color-light; // Borde claro reutilizable
+$border-focus: 2px solid #dda853;             // Borde para campos en focus
+$border-valid: 2px solid #008000;             // Borde para campos válidos
+$border-invalid: 2px solid #e62e1b;           // Borde para campos inválidos
+
+// ==================
+// PRODUCTOS
+// ==================
+$product-background: #dda853;    // Fondo de la tarjeta de producto (dorado suave)
+$product-bg-neutral: #d5c7a3;      // Fondo neutro para producto o info
+$product-text-light: #d4f6ff;      // Texto claro (casi blanco azulado)
+$product-text-muted: #c6e7ff;      // Texto secundario, apagado (azul claro)
+
+

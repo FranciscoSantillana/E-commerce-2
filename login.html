@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+    <link rel="stylesheet" href="styles/main.css" />
+    <script type="module" src="./js/login.js" defer></script>
+
+    <title>Inicio de sesión</title>
+  </head>
+  <body class="login-page">
+    <section class="login">
+      <h2 class="login__title">Iniciar Sesión</h2>
+      <form class="login__form" autocomplete="on">
+        <div class="login__field">
+          <span class="login__icon icon-no-hover "><i class="fa-solid fa-envelope "></i></span>
+          <label class="login__label" for="email">Correo electrónico</label>
+          <input class="login__input" type="email" id="email" name="email" autocomplete="email" required />
+        </div>
+  
+        <div class="login__field">
+          <span class="login__icon icon-no-hover "><i class="fa-solid fa-lock"></i></span>
+          <label class="login__label" for="password">Contraseña</label>
+          <input class="login__input" type="password" id="password" name="password" autocomplete="current-password" required />
+        </div>
+  
+        <div class="login__options">
+          <label class="login__remember">
+            <input type="checkbox" name="remember" autocomplete="off" /> Recuérdame
+          </label>
+          <a class="login__link" href="#"><strong>¿Olvidaste tu contraseña?</strong></a>
+        </div>
+  
+        <div class="login__actions">
+          <button class="login__button" type="submit">Ingresar</button>
+        </div>
+  
+        <div class="login__register">
+          <a class="login__link" href="register.html">Crea tu cuenta</a>
+        </div>
+      </form>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" refer></script>
+    <link rel="stylesheet" href="styles/main.css" />
+    <!-- Incluir los archivos JS -->
+    <script type="module" src="./js/main.js" defer></script>
+
+    <title>E-commerce</title>
+  </head>
+  <body>
+    <!---HEADER--->
+    <header class="header">  
+      <section class="header__top">
+        <!-- Logo -->
+        <a href="index.html" class="header__logo">
+          <img src="./img/Logo.jpg" alt="E-commerce" class="header__logo--img" />
+        </a>
+        
+        <!-- Navegación -->
+        <nav class="header__nav">
+          <!-- Menú hamburguesa -->
+          <div class="header__menu--icon" id="menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+        
+          <!-- Lista de enlaces -->
+          <ul class="header__nav--list" id="nav-menu"> 
+            <li class="header__nav--item"><a href="#">Inicio</a></li>
+            <li class="header__nav--item"><a href="#">Tendencia</a></li>
+            <li class="header__nav--item"><a href="#">Novedades</a></li>
+            <li class="header__nav--item"><a href="/products.html">Tecnología</a></li>
+          </ul>
+        </nav>
+      </section> 
+      <!-- Iconos de acción -->
+      <section class="header__actions">
+        <a href="#" class="header__icon" aria-label="Buscar">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        <a href="login.html" class="header__icon" aria-label="Perfil">
+          <i class="fa-solid fa-user"></i>
+        </a>
+        <a href="#" class="header__icon" aria-label="Carrito">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="number__items" id="number-items"></span>
+        </a>
+      </section>
+    </header>
+    <main>
+   
+      <section class="product">
+        <article class="product__card" id="product__card">
+      
+        </article>
+        <article class="product__card">
+          <div class="product__image">
+            <img
+              src="./img/producto/910-004940.jpg"
+              alt="910-004940"
+              class="product__img"
+            />
+            <button class="product__like" aria-label="Me gusta">
+              <i class="fa-solid fa-heart"></i>
+            </button>
+          </div>
+          <div class="product__info">
+            <h3 class="product__name">Nombre del Producto</h3>
+            <p class="product__price">$19.99</p>
+            <div class="product__rating">
+              <span class="fas fa-star" aria-label="Estrella llena"></span>
+              <span class="fas fa-star" aria-label="Estrella llena"></span>
+              <span class="fas fa-star" aria-label="Estrella llena"></span>
+              <span class="far fa-star" aria-label="Estrella vacía"></span>
+              <span class="far fa-star" aria-label="Estrella vacía"></span>
+            </div>
+            <button class="product__btn" aria-label="Agregar al carrito">
+              Agregar al carrito
+            </button>
+          </div>
+        </article>
+        <article class="product__card">
+          <div class="product__image">
+            <img
+              src="./img/producto/910-001601.jpg"
+              alt="910-001601"
+              class="product__img"
+            />
+            <button class="product__like" aria-label="Me gusta">
+              <i class="fa-solid fa-heart"></i>
+            </button>
+          </div>
+          <div class="product__info">
+            <h3 class="product__name">Nombre del Producto</h3>
+            <p class="product__price">$19.99</p>
+            <div class="product__rating">
+              <span class="fas fa-star" aria-label="Estrella llena"></span>
+              <span class="fas fa-star" aria-label="Estrella llena"></span>
+              <span class="fas fa-star" aria-label="Estrella llena"></span>
+              <span
+                class="fa-star-half"
+                aria-label="Estrella mitad llena"
+              ></span>
+              <span class="far fa-star" aria-label="Estrella vacía"></span>
+            </div>
+            <button class="product__cart" aria-label="Agregar al carrito">
+              Agregar al carrito
+            </button>
+          </div>
+        </article>
+        <article class="product__card">
+          <div class="product__image">
+            <img
+              src="./img/producto/910-002225.png"
+              alt="910-002225"
+              class="product__img"
+            />
+            <button class="product__like" aria-label="Me gusta">
+              <i class="fa-solid fa-heart"></i>
+            </button>
+          </div>
+          <div class="product__info">
+            <h3 class="product__name">Nombre del Producto</h3>
+            <p class="product__price">$19.99</p>
+            <div class="product__rating">
+              <span class="fas fa-star" aria-label="Estrella llena"></span>
+              <span class="fas fa-star" aria-label="Estrella llena"></span>
+              <span class="fas fa-star" aria-label="Estrella llena"></span>
+              <span class="far fa-star" aria-label="Estrella vacía"></span>
+              <span class="far fa-star" aria-label="Estrella vacía"></span>
+            </div>
+            <button class="product__cart" aria-label="Agregar al carrito">
+              Agregar al carrito
+            </button>
+          </div>
+        </article>
+        <article class="product__card">
+          <div class="product__image">
+            <img
+              src="./img/producto/910-003635.jpg"
+              alt="910-003635"
+              class="product__img"
+            />
+            <button class="product__like" aria-label="Me gusta">
+              <i class="fa-solid fa-heart"></i>
+            </button>
+          </div>
+          <div class="product__info">
+            <h3 class="product__name">Nombre del Producto</h3>
+            <p class="product__price">$19.99</p>
+            <div class="product__rating">
+              <span class="fas fa-star" aria-label="Estrella llena"></span>
+              <span class="fas fa-star" aria-label="Estrella llena"></span>
+              <span class="fas fa-star" aria-label="Estrella llena"></span>
+              <span class="far fa-star" aria-label="Estrella vacía"></span>
+              <span class="far fa-star" aria-label="Estrella vacía"></span>
+            </div>
+            <button class="product__cart" aria-label="Agregar al carrito">
+              Agregar al carrito
+            </button>
+          </div>
+        </article>
+        <article class="product__card">
+          <div class="product__image">
+            <img
+              src="./img/producto/910-004053.jpg"
+              alt="910-004053"
+              class="product__img"
+            />
+            <button class="product__like" aria-label="Me gusta">
+              <i class="fa-solid fa-heart"></i>
+            </button>
+          </div>
+          <div class="product__info">
+            <h3 class="product__name">Nombre del Producto</h3>
+            <p class="product__price">$19.99</p>
+            <div class="product__rating">
+              <span class="fas fa-star" aria-label="Estrella llena"></span>
+              <span class="fas fa-star" aria-label="Estrella llena"></span>
+              <span class="fas fa-star" aria-label="Estrella llena"></span>
+              <span class="far fa-star" aria-label="Estrella vacía"></span>
+              <span class="far fa-star" aria-label="Estrella vacía"></span>
+            </div>
+            <button class="product__cart" aria-label="Agregar al carrito">
+              Agregar al carrito
+            </button>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <!---FOOTER--->
+    <footer class="footer">
+      <article class="footer__container">
+        <section class="footer__menu">
+          <div class="footer__contact">
+            <h3 class="footer__title">Información de Contacto</h3>
+            <ul class="footer__list">
+              <li class="footer__list--item">Dirección: C. 16 de Septiembre s/n, Centro histórico de Puebla, 72000 Heroica Puebla de Zaragoza, Pue.</li>
+              <li class="footer__list--item">&#x1F4DE +52 222 222 22 22</li>
+              <li class="footer__list--item">Email: E-commerce@support.com</li>
+            </ul>
+          </div>
+    
+          <div class="footer__info">
+            <h3 class="footer__title">Información</h3>
+            <ul class="footer__list">
+              <li class="footer__list--item"><a href="#">Acerca de Nosotros</a></li>
+              <li class="footer__list--item"><a href="#">Información</a></li>
+              <li class="footer__list--item"><a href="#">Contáctanos</a></li>
+            </ul>
+          </div>
+    
+          <div class="footer__account">
+            <h3 class="footer__title">Mi cuenta</h3>
+            <ul class="footer__list">
+              <li class="footer__list--item"><a href="#">Mi cuenta</a></li>
+              <li class="footer__list--item"><a href="#">Historial de órdenes</a></li>
+              <li class="footer__list--item"><a href="#">Lista de deseos</a></li>
+              <li class="footer__list--item"><a href="#">Novedades</a></li>
+              <li class="footer__list--item"><a href="#">Reembolsos</a></li>
+            </ul>
+          </div>
+        </section>
+    
+        <section class="footer__copyright">
+          <p class="footer__link"><a href="/privacidad">Políticas de Privacidad</a></p>
+          <p class="footer__link"><a href="/terminos">Términos y condiciones</a></p>
+          <p class="footer__text">&copy; 2025 E-commerce</p>
+        </section>
+      </article>
+    </footer>
+    
+  </body>
+</html>

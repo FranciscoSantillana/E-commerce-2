@@ -1,0 +1,118 @@
+@use "../utilities/variables" as *;
+@use "../base/typography" as *;
+@use "../utilities/mixins" as *;
+@use "../utilities/helpers" as *;
+
+.header{
+  @include box-shadow($color-name: light); // Sombra suave en el header
+  @include flex-center($justify-content: space-between);
+  @include transition($timing-function: ease);
+  flex-wrap: wrap; // Aseguramos que los elementos dentro del header puedan envolverse
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: $spacing-sm 5%; // Espacio agregado para evitar que el contenido quede pegado a los bordes
+  border-bottom: 1px solid $header-border-color;
+  background-color: transparent; // Fondo transparente por defecto
+  
+  &.sticky {
+    background-color: $header-background;
+  }
+  &.products{
+    position: relative;
+    background-color: $header-background;
+  }
+  &__top {
+    @include flex-center($justify-content: space-between);
+    flex: 0 0 66.66%;
+    max-width: 66.66%;
+    @include respond-to(tablet) {
+      @include flex-center($flex-direction:row-reverse);
+      justify-content: space-evenly;
+      margin-bottom: $spacing-sm;
+  
+    }
+  }
+  // Logo
+  &__logo {
+ 
+    &--img {
+      @include responsive-media(2px, 'img', 100%) {
+        max-width: 100px;
+        cursor: pointer;
+        border-radius: 50%;
+      }
+    }
+  }
+    // Navegación
+  &__nav{
+    @include flex-center($justify-content: space-between, $flex-direction:column);
+    gap: $spacing-md;
+    &--list{
+      @include flex-center($justify-content: space-between);
+      @include respond-to(tablet) {
+        display: none; // Oculta el menú por defecto en pantallas pequeñas
+        flex-direction: column;
+        width: 100%;
+        position: 2;
+        &.show {
+          display: flex; // Se muestra cuando agregas la clase "show"
+        }
+      }
+    }
+    &--item {
+      @include text-style(
+        $font-size-lg,
+        bold,
+        $header-text-color,
+        $header-background
+      );
+      @extend %link_header;
+      color: $text-color;
+      padding: $spacing-sm $spacing-md;
+      margin: 0;
+      border-radius: $border-radius;
+      @include respond-to(tablet){
+        @include text-style(
+        $font-size-base,
+        bold,
+        $header-text-color,
+        $header-background
+      );
+      color: $text-color;
+      padding: $spacing-sm $spacing-md;
+      margin: 0;
+      border-radius: $border-radius;
+      }
+    }
+  }
+  // Ícono hamburguesa (versión móvil)
+  &__menu--icon{
+    color: $icon-color;
+    font-size: $font-size-xl;
+    z-index: 1001;
+    cursor: pointer;
+    display: none;    
+    @include respond-to(tablet) {
+      @include flex-center($flex-direction:row);
+    }
+  }
+  // Acciones (iconos: buscar, usuario, carrito)
+  &__actions {
+  @include flex-center($justify-content: space-between);
+  
+  gap: $spacing-md; // Espacio entre los iconos
+
+  .header__icon {
+    padding: $spacing-sm, $spacing-md;
+    margin: 0 $spacing-xs;
+    @include icon-style($size: 40px, $bg: $icon-hover-color);
+    @include flex-center();
+ 
+  }
+}
+  
+
+}

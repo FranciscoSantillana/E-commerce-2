@@ -1,0 +1,105 @@
+@use "../utilities/variables" as *;
+@use "../base/typography" as *;
+@use "../utilities/mixins" as *;
+@use "../utilities/helpers" as *;
+.login-page {
+    @include flex-center();
+    min-height: 100vh;
+    background: $background-color;
+  }
+  .login {
+    width: 100%;
+    max-width: 400px;
+    padding: $spacing-xl;
+    background-color: $background-secondary-color;
+    border-radius: $border-radius-xl;
+    @include box-shadow("medium");
+  
+    &__title {
+      @include text-style(
+        $font-size: $font-size-xxl,
+        $font-weight: bold,
+        $color: $text-link
+      );
+      margin-bottom: $spacing-lg;
+    }
+  
+    &__form {
+      @include flex-center($flex-direction: column);
+      gap: $spacing-lg;
+    }
+  
+    &__field {
+      @include flex-center();
+      gap: $spacing-sm;
+      padding: $spacing-sm;
+      border: $border-light;
+      border-radius: $border-radius-lg;
+      background-color: $background-color;
+    }
+    &__label {
+      display: none;
+    }
+  
+    &__input {
+      flex: 1;
+      border: none;
+      outline: none;
+      background-color: transparent;
+      @include text-style($font-size: $font-size-sm);
+    }
+  
+    &__options {
+      @include flex-center($justify-content: space-between);
+      @include text-style($font-size: $font-size-sm);
+      margin: $spacing-sm;
+      a {
+        @include text-style(
+          $font-size: $font-size-xs,
+          $font-weight: bold,
+          $color: $text-link-lighten
+        );
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+          @include text-style(
+            $font-size: $font-size-xs,
+            $font-weight: bold,
+            $color: $text-link-lighten
+          );
+        }
+      }
+    }
+  
+    &__remember {
+      @include flex-center();
+      gap: $font-size-sm;
+      padding: $spacing-sm;
+    }
+  
+    &__actions {
+      text-align: center;
+    }
+  
+    &__button {
+      @include button-style(
+        $bg: $button-bg-light-d,
+        $color: $button-text,
+        $bg-hover: $button-bg-light-dd
+      );
+    }
+  
+    &__register {
+      width: 100%;
+      margin-top: $spacing-sm;
+      a {
+        @include flex-center();
+        @include button-style(
+          $btn-font-size: $font-size-lg,
+          $bg: $background-color,
+          $color: $text-link-lighten,
+          $bg-hover: $background-color
+        );
+      }
+    }
+  }

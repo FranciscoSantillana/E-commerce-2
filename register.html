@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" refer></script>
+    
+    <!-- intl-tel-input.com -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/25.3.1/build/css/intlTelInput.min.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/25.3.1/build/js/intlTelInput.min.js"
+      refer
+    ></script>
+
+    <link rel="stylesheet" href="styles/main.css" />
+    <script type="module" src="js/register.js" refer></script>
+
+    <title>Formulario de Registro</title>
+  </head>
+  <body class="register-page">
+    <article class="register">
+      <h1 class="register__title">Registro de Usuario</h1>
+      <form id="registerForm" class="register__form">
+        <!-- NAME -->
+        <div class="register__field">
+          <label for="name" class="register__label">Nombre:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="register__input"
+            required
+          />
+        </div>
+        <!-- LAST NAME -->
+        <div class="register__field">
+          <label for="last-name" class="register__label">Apellido:</label>
+          <input
+            type="text"
+            id="last-name"
+            name="last-name"
+            class="register__input"
+            required
+          />
+        </div>
+        <!-- BIRH-->
+        <div class="register__field">
+          <label for="birth" class="register__label"
+            >Fecha de Nacimiento:</label
+          >
+          <input
+            type="date"
+            id="birth"
+            name="birth"
+            class="register__input"
+            required
+          />
+        </div>
+        <!-- EMAIL-->
+        <div class="register__field">
+          <label for="email" class="register__label">Correo Electrónico:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="register__input"
+            required
+          />
+        </div>
+        <!-- PASSWORD -->
+        <div class="register__field">
+          <label for="password" class="register__label">Contraseña:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="register__input"
+            minlength="8"
+            required
+          />
+          <p
+            id="passwordHint"
+            class="register__password-hint"
+            style="display: none"
+          >
+            Mínimo 8 caracteres a 64, incluyendo mayúscula, minúscula, número y
+            carácter especial.
+          </p>
+        </div>
+
+        <!-- PASSWORD CONFIRMATION -->
+        <div class="register__field">
+          <label for="passwordConfirmation" class="register__label"
+            >Confirmar Contraseña:</label
+          >
+          <input
+            type="password"
+            id="passwordConfirmation"
+            name="passwordConfirmation"
+            class="register__input"
+            minlength="10"
+            required
+          />
+          <p
+            id="passwordConfirmHint"
+            class="register__password-hint"
+            style="display: none"
+          >
+            Repite la contraseña exactamente igual.
+          </p>
+        </div>
+
+        <!-- COUNTRY -->
+        <div class="register__field">
+          <label for="country" class="register__label">País:</label>
+          <select id="country" name="country" class="register__input" required>
+            <option value="">Selecciona un país</option>
+            <option value="México">México</option>
+          </select>
+        </div>
+
+        <!-- CITY -->
+        <div class="register__field">
+          <label for="city" class="register__label">Estado:</label>
+          <select id="city" name="city" class="register__input" required>
+            <option value="">Selecciona un estado</option>
+            <option value="Aguascalientes">Aguascalientes</option>
+            <option value="Baja California">Baja California</option>
+            <option value="Baja California Sur">Baja California Sur</option>
+            <option value="Campeche">Campeche</option>
+            <option value="Chiapas">Chiapas</option>
+            <option value="Chihuahua">Chihuahua</option>
+            <option value="CDMX">Ciudad de México</option>
+            <option value="Coahuila">Coahuila</option>
+            <option value="Colima">Colima</option>
+            <option value="Durango">Durango</option>
+            <option value="Estado de México">Estado de México</option>
+            <option value="Guanajuato">Guanajuato</option>
+            <option value="Guerrero">Guerrero</option>
+            <option value="Hidalgo">Hidalgo</option>
+            <option value="Jalisco">Jalisco</option>
+            <option value="Michoacán">Michoacán</option>
+            <option value="Morelos">Morelos</option>
+            <option value="Nayarit">Nayarit</option>
+            <option value="Nuevo León">Nuevo León</option>
+            <option value="Oaxaca">Oaxaca</option>
+            <option value="Puebla">Puebla</option>
+            <option value="Querétaro">Querétaro</option>
+            <option value="Quintana Roo">Quintana Roo</option>
+            <option value="San Luis Potosí">San Luis Potosí</option>
+            <option value="Sinaloa">Sinaloa</option>
+            <option value="Sonora">Sonora</option>
+            <option value="Tabasco">Tabasco</option>
+            <option value="Tamaulipas">Tamaulipas</option>
+            <option value="Tlaxcala">Tlaxcala</option>
+            <option value="Veracruz">Veracruz</option>
+            <option value="Yucatán">Yucatán</option>
+            <option value="Zacatecas">Zacatecas</option>
+          </select>
+        </div>
+
+        <!-- COLONIA -->
+        <div class="register__field">
+          <label for="cologne" class="register__label">Colonia:</label>
+          <input
+            type="text"
+            id="cologne"
+            name="cologne"
+            class="register__input"
+            required
+          />
+        </div>
+
+        <!-- ADDRESS -->
+        <div class="register__field">
+          <label for="address" class="register__label">Dirección:</label>
+          <textarea
+            id="address"
+            name="address"
+            class="register__input"
+            required
+            rows="3"
+          ></textarea>
+        </div>
+        <!-- ZIP CODE-->
+        <div class="register__field">
+          <label for="zipCode" class="register__label">Código Postal:</label>
+          <input
+            type="text"
+            id="zipCode"
+            name="zipCode"
+            class="register__input"
+            required
+          />
+        </div>
+        <!-- PHONE-->
+        <div class="register__field">
+          <label for="phone" class="register__label">Teléfono:</label>
+          <input type="tel" id="phone" class="register__input" required />
+        </div>
+
+        <!-- TERMS AND CONDITIONS -->
+        <div class="register__field">
+          <label for="terms" class="register__label">
+            <input
+              type="checkbox"
+              id="terms"
+              name="terms"
+              class="register__checkbox"
+              required
+            />
+            Acepto los
+            <a href="#" class="register__terms-link">términos y condiciones</a>
+          </label>
+        </div>
+        <!-- REGISTRATION BUTTON -->
+        <button
+          type="submit"
+          id="register-btn"
+          class="register__button"
+          disabled
+        >
+          Registrar
+        </button>
+      </form>
+    </article>
+  </body>
+</html>

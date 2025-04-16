@@ -1,0 +1,416 @@
+@use "variables" as *;
+@use "../base/typography" as *;
+
+// ==================
+// MIXINS
+// ==================
+/**
+ * Mixin: flex-center
+ *
+ * Aplica estilos de centramiento utilizando Flexbox.
+ * Permite personalizar la alineación vertical, la alineación horizontal
+ * y la dirección del eje principal.
+ *
+ * @param {String} $align-items - Alineación vertical de los elementos. Valor por defecto: center.
+ * @param {String} $justify-content - Alineación horizontal de los elementos. Valor por defecto: center.
+ * @param {String} $flex-direction - Dirección del eje principal. Valor por defecto: row.
+ *
+ * Ejemplo de uso:
+ * .contenedor {
+ *   @include flex-center(center, space-between, row);
+ * }
+ */
+@mixin flex-center(
+  $align-items: center,
+  // Alineación vertical por defecto
+  $justify-content: center,
+  // Alineación horizontal por defecto
+  $flex-direction: row // Dirección del eje principal
+) {
+  display: flex; // Aplica display flex
+  align-items: $align-items; // Controla la alineación vertical
+  justify-content: $justify-content; // Controla la alineación horizontal
+  flex-direction: $flex-direction; // Define la dirección de los elementos dentro del contenedor
+}
+
+/**
+ * Mixin: grid-center
+ *
+ * Configura un contenedor usando CSS Grid con centramiento vertical.
+ * Permite definir:
+ * - El número de columnas del grid.
+ * - El tamaño de cada columna (usando fracciones).
+ * - El espacio entre filas y columnas.
+ * - La alineación vertical de los elementos.
+ *
+ * @param {Number} $columns - Número de columnas en el grid. Valor por defecto: 1.
+ * @param {Value} $fr - Tamaño de cada columna. Valor por defecto: 1fr.
+ * @param {Length} $gap - Espacio entre filas/columnas. Valor por defecto: 1rem.
+ * @param {String} $align-items - Alineación vertical de los elementos en el grid. Valor por defecto: center.
+ *
+ * Ejemplo de uso:
+ * .grid-contenedor {
+ *   @include grid-center(3, 1fr, 1rem, start);
+ * }
+ */
+@mixin grid-center(
+  $columns: 1,
+  // Número de columnas por defecto
+  $fr: 1fr,
+  // Tamaño de cada columna
+  $gap: 1rem,
+  // Espacio entre filas/columnas
+  $align-items: center // Alineación vertical del contenido
+) {
+  display: grid; // Activa grid layout
+  grid-template-columns: repeat(
+    $columns,
+    $fr
+  ); // Define el número y tamaño de columnas
+  gap: $gap; // Define el espacio entre elementos
+  align-items: $align-items; // Alinea verticalmente el contenido
+}
+@mixin grid-item(
+  $column-start: auto,
+  $row-start: auto,
+  $column-span: 1,
+  $row-span: 1
+) {
+  grid-column: $column-start / span $column-span;
+  grid-row: $row-start / span $row-span;
+}
+
+/**
+ * Mixin: box-shadow
+ *
+ * Aplica una sombra personalizada a un elemento. Permite definir:
+ * - Offset horizontal y vertical.
+ * - Difuminado.
+ * - Color de la sombra, obtenido a través de la función `get-shadow-color`.
+ * - Si la sombra es interna (inset) o externa.
+ *
+ * @param {Length}  $horizontal - Offset horizontal de la sombra. Por defecto: 0px.
+ * @param {Length}  $vertical   - Offset vertical de la sombra. Por defecto: 4px.
+ * @param {Length}  $blur       - Valor de difuminado de la sombra. Por defecto: 6px.
+ * @param {String}  $color-name - Tipo de sombra ("light", "medium" o cualquier otro para una sombra fuerte). Por defecto: " ".
+ * @param {Boolean} $inset      - Indica si la sombra es interna (true) o externa (false). Por defecto: false.
+ *
+ * Ejemplo de uso:
+ * .mi-elemento {
+ *   @include box-shadow(2px, 4px, 8px, "light", false);
+ * }
+ */
+@mixin box-shadow(
+  $horizontal: 0px,
+  // Offset horizontal
+  $vertical: 4px,
+  // Offset vertical
+  $blur: 6px,
+  // Difuminado
+  $color-name: " ",
+  // Tipo de sombra ("light", "medium" o cualquier otro para sombra fuerte)
+  $inset: false // Define si la sombra es interna (inset) o externa
+) {
+  // Obtiene el color de sombra según el parámetro recibido
+  $color: get-shadow-color($color-name);
+  // Construye el valor completo de la sombra
+  $shadow: $horizontal $vertical $blur $color;
+
+  @if $inset {
+    box-shadow: inset $shadow;
+  } @else {
+    box-shadow: $shadow;
+  }
+}
+
+/**
+ * Mixin: transition
+ *
+ * Aplica una transición CSS a la propiedad especificada, permitiendo personalizar
+ * la duración y la curva de aceleración de la transición para lograr efectos de animación suaves.
+ *
+ * @param {String}  $property        - La propiedad CSS a transicionar. Por defecto: all.
+ * @param {Time}    $duration        - La duración de la transición. Por defecto: 0.45s.
+ * @param {String}  $timing-function - La función de aceleración de la transición. Por defecto: ease-in-out.
+ *
+ * Ejemplo de uso:
+ * .mi-elemento {
+ *   @include transition($property: opacity, $duration: 0.3s, $timing-function: ease);
+ * }
+ */
+@mixin transition(
+  $property: all,
+  $duration: 0.45s,
+  $timing-function: ease-in-out
+) {
+  transition: $property $duration $timing-function;
+}
+
+/**
+ * Mixin: text-style
+ *
+ * Aplica estilos de tipografía configurables para texto.
+ * Permite ajustar el tamaño de la fuente, el peso, la altura de línea, el color,
+ * el espaciado entre letras y la alineación del texto.
+ *
+ * @param {Length}  $font-size      - Tamaño de la fuente. Por defecto: $font-size-base.
+ * @param {String|Number} $font-weight - Peso de la fuente. Por defecto: normal.
+ * @param {Number}  $line-height    - Altura de línea. Por defecto: 1.5.
+ * @param {Color}   $color          - Color del texto. Por defecto: $text-color.
+ * @param {Number}  $letter-spacing - Espaciado entre letras. Por defecto: 0.
+ * @param {String}  $align          - Alineación del texto. Por defecto: center.
+ *
+ * Ejemplo de uso:
+ * .titulo {
+ *   @include text-style($font-size: 2rem, $font-weight: bold, $align: left);
+ * }
+ */
+@mixin text-style(
+  $font-size: $font-size-base,
+  $font-weight: normal,
+  $line-height: 1.5,
+  $color: $text-color,
+  $letter-spacing: 0,
+  $align: center
+) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  color: $color;
+  letter-spacing: $letter-spacing;
+  text-align: $align;
+}
+
+/**
+ * Mixin: icon-style
+ *
+ * Aplica estilos para íconos, definiendo el tamaño, color, fondo y efectos de hover.
+ * Permite ajustar el escalado en hover y, opcionalmente, desactivar el efecto hover mediante la clase "icon-no-hover".
+ *
+ * @param {Length}  $size         - Tamaño del icono (ancho y alto). Por defecto: $spacing-md.
+ * @param {Number}  $scale        - Factor de escala al hacer hover. Por defecto: 1.5.
+ * @param {Color}   $bg           - Color de fondo del icono. Por defecto: transparent.
+ * @param {Color}   $color        - Color del ícono. Por defecto: $icon-color.
+ * @param {Length}  $font-size    - Tamaño de la fuente del ícono. Por defecto: $font-size-lg.
+ * @param {Color}   $bg-hover     - Color de fondo en hover. Por defecto: $icon-color.
+ * @param {Color}   $color-hover  - Color del ícono en hover. Por defecto: $icon-hover-color.
+ *
+ * Ejemplo de uso:
+ * .mi-icono {
+ *   @include icon-style($size: 24px, $scale: 1.3);
+ * }
+ */
+@mixin icon-style(
+  $size: $spacing-md,
+  $scale: 1.5,
+  $bg: transparent,
+  $color: $icon-color,
+  $font-size: $font-size-lg,
+  $bg-hover: $icon-color,
+  $color-hover: $icon-hover-color
+) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  background-color: $bg;
+  color: $color;
+  font-size: $font-size;
+  transition: $header-background 0.3s ease-in-out, color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: $bg-hover;
+    color: $color-hover;
+    transform: scale($scale);
+  }
+
+  // Desactivar hover con la clase "icon-no-hover"
+  &.icon-no-hover {
+    &:hover {
+      background-color: $bg;
+      transform: none;
+    }
+  }
+}
+
+/**
+ * Mixin: button-style
+ *
+ * Crea un botón con estilos base personalizables. Permite configurar colores,
+ * borde redondeado, animación de hover, tipografía y otros detalles.
+ *
+ * @param {Color}   $bg              - Color de fondo por defecto del botón. Por defecto: $button-background.
+ * @param {Color}   $color           - Color del texto por defecto. Por defecto: $button-text.
+ * @param {Color}   $bg-hover        - Color de fondo en hover. Por defecto: $button-background-hover.
+ * @param {Color}   $disabled        - Color de fondo cuando está deshabilitado. Por defecto: $button-disabled.
+ * @param {Length}  $b-radius        - Radio del borde. Por defecto: $border-radius.
+ * @param {Number}  $scale           - Escala para hover (1 = sin escalado). Por defecto: 1.
+ * @param {Number}  $opacity         - Opacidad en hover. Por defecto: 0.8.
+ * @param {Length}  $btn-font-size   - Tamaño de fuente del botón. Por defecto: $font-size-base.
+ * @param {Number}  $btn-line-height - Altura de línea. Por defecto: 1.2.
+ * @param {Number}  $btn-letter-spacing - Espaciado entre letras. Por defecto: 1.
+ *
+ * Ejemplo de uso:
+ * .mi-boton {
+ *    @include button-style(#007bff, #fff);
+ * }
+ */
+@mixin button-style(
+  $bg: $button-background,
+  $color: $button-text,
+  $bg-hover: $button-background-hover,
+  $disabled: $button-disabled,
+  $b-radius: $border-radius,
+  $scale: 1,
+  $opacity: 0.8,
+  $btn-font-size: $font-size-base,
+  $btn-line-height: 1.2,
+  $btn-letter-spacing: 1
+) {
+  background-color: $bg;
+  color: $color;
+  border: none;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $b-radius;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-size: $btn-font-size;
+  line-height: $btn-line-height;
+  letter-spacing: $btn-letter-spacing;
+
+  &:hover {
+    background-color: $bg-hover;
+    scale: $scale;
+    opacity: $opacity;
+    // Reafirma las propiedades para mantener consistencia
+    font-size: $btn-font-size;
+    line-height: $btn-line-height;
+    letter-spacing: $btn-letter-spacing;
+    color: $color;
+    font-weight: bold;
+  }
+
+  &:disabled {
+    background-color: $disabled;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+// =====================================
+// Mixin: responsive-media()
+// -------------------------------------
+// Descripción:
+// Contenedor flexible para contenido multimedia responsivo
+// como imágenes, iframes, videos, etc.
+//
+// Parámetros:
+// - $ratio: Relación de aspecto del contenedor (default: 56.25% para 16:9)
+// - $selector: Elemento interno a posicionar (default: 'img')
+// - $width: Ancho del contenido interno (default: 100%)
+//
+// Uso:
+// @include responsive-media(); // img 16:9
+// @include responsive-media(75%, 'iframe', 100%); // iframe 4:3
+//
+// También se puede usar con @content para añadir directamente elementos internos.
+//
+// Ejemplo de estructura:
+// <div class="media">
+//   <img src="..." alt="..." />
+// </div>
+// =====================================
+@mixin responsive-media(
+  $ratio: 56.25%,
+  // Aspect ratio del contenedor (por defecto: 16:9)
+  $selector: "img",
+  // Elemento objetivo (img, iframe, video, etc.)
+  $width: 100%,
+  // Ancho del contenido
+  $object-fit: cover // Cómo se adapta el contenido
+) {
+  position: relative;
+  width: 100%;
+  padding-top: $ratio;      // Esto crea el aspect-ratio
+  overflow: hidden;
+
+  // Selector dinámico para permitir img, video, iframe, etc.
+  #{"#{$selector}"} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $width;
+    height: 100%;
+    object-fit: $object-fit;
+    display: block;
+  }
+
+  @content; // Permite incluir elementos directamente
+}
+
+// =====================================
+// Mapa: $devices
+// -------------------------------------
+// Descripción:
+// Define rangos específicos de resoluciones de pantalla para distintos tipos de dispositivos
+// y orientaciones, que pueden utilizarse junto al mixin `device()`.
+//
+// Uso recomendado:
+// @include device(mobile) { ... }
+//
+// Rango de dispositivos:
+// - desktop-xl:          min-width: 1281px                     → Escritorios grandes / monitores 2K o 4K
+// - desktop:             1025px - 1280px                       → Laptops y escritorios estándar
+// - tablet:              768px - 1024px                        → Tablets (modo retrato o general)
+// - tablet-landscape:    768px - 1024px + orientación paisaje  → Tablets (modo paisaje)
+// - mobile-landscape:    481px - 767px                         → Móviles en paisaje o tablets chicas
+// - mobile:              320px - 480px                         → Smartphones pequeños (modo retrato)
+// =====================================
+// =====================================
+// Mapa de breakpoints con nombres personalizados
+// =====================================
+// Estos breakpoints reflejan los rangos de resolución usados también en JS para detectar el tamaño de pantalla.
+// Puedes usar estos alias en el mixin `respond-to()` para aplicar estilos condicionales por tamaño.
+$breakpoints-named: (
+  xs: "(max-width: 480px)",
+  // Extra pequeño (teléfonos pequeños)
+  sm: "(min-width: 481px) and (max-width: 600px)",
+  // Pequeño (teléfonos grandes)
+  md: "(min-width: 601px) and (max-width: 768px)",
+  // Mediano (phablets o tablets pequeñas)
+  tablet: "(min-width: 769px) and (max-width: 1024px)",
+  // Tablet (modo retrato)
+  tablet-landscape:
+    "(min-width: 769px) and (max-width: 1024px) and (orientation: landscape)",
+  // Tablet (modo horizontal)
+  lg: "(min-width: 1025px) and (max-width: 1200px)",
+  // Grande (laptops pequeños)
+  xl: "(min-width: 1201px) and (max-width: 1440px)",
+  // Extra grande (laptops y desktops grandes)
+  xxlplus: "(min-width: 1441px)",
+  // Ultra grande (pantallas 2K, 4K, etc.)
+  mobile: "(min-width: 320px) and (max-width: 480px)",
+  // Alias directo para móviles pequeños
+  mobile-landscape:
+    "(min-width: 481px) and (max-width: 767px) and (orientation: landscape)"
+    // Móvil en modo horizontal,
+);
+
+// =====================================
+// Mixin: respond-to()
+// -------------------------------------
+// Uso:
+// @include respond-to(xs) { ... }                // Estilos para pantallas pequeñas
+// @include respond-to(tablet-landscape) { ... } // Estilos para tablet en horizontal
+// -------------------------------------
+// Este mixin aplica una media query en base al nombre definido en $breakpoints-named
+// y ejecuta el contenido dentro del bloque @content.
+// =====================================
+@mixin respond-to($name) {
+  @if map-has-key($breakpoints-named, $name) {
+    @media #{map-get($breakpoints-named, $name)} {
+      @content;
+    }
+  } @else {
+    @warn "⚠️ El breakpoint `#{$name}` no está definido en el mapa.";
+  }
+}

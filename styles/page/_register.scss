@@ -1,0 +1,92 @@
+@use "../utilities/variables" as *;
+@use "../base/typography" as *;
+@use "../utilities/mixins" as *;
+@use "../utilities/helpers" as *;
+// registro
+.register-page {
+    @include flex-center();
+    min-height: 100vh;
+    background: $background-color;
+  }
+  .register {
+    width: 75%;
+    padding: 0 $spacing-lg;
+    background-color: $background-secondary-color;
+    border-radius: $border-radius-xl;
+    margin: $spacing-xl;
+    border: $border-light;
+    @include box-shadow("medium");
+  
+    &__title {
+      @include text-style(
+        $font-size: $font-size-xxl,
+        $font-weight: bold,
+        $color: $text-link
+      );
+      margin-bottom: $spacing-lg;
+    }
+  
+    &__form {
+      @include flex-center($flex-direction: column);
+      gap: $spacing-md;
+    }
+  
+    &__field {
+      width: 100%;
+      margin-bottom: $spacing-md;
+      position: relative;
+    }
+  
+    &__label {
+      @include text-style(
+        $font-size: $font-size-base,
+        $color: $button-bg-light-dd,
+        $align: left
+      );
+      @include transition();
+      display: block;
+      margin-bottom: $spacing-xs;
+    }
+    .register__password-hint {
+      @include text-style($font-size: $font-size-sm, $color: $button-bg-light-dd);
+    }
+    &__input {
+      @include text-style($font-size: $font-size-base);
+      cursor: text;
+      border-radius: $border-radius-xxl;
+      width: 100%;
+      padding: $spacing-sm;
+      border: $border-light;
+      outline: none;
+      resize: vertical;
+      overflow: auto;
+  
+      &:focus {
+        border: $border-focus;
+      }
+      &.valid {
+        border: $border-valid;
+      }
+      &.invalid {
+        border: $border-invalid;
+      }
+    }
+    a {
+      @include text-style($font-size: $font-size-sm, $color: $text-color);
+      &:hover {
+        @include text-style($font-size: $font-size-sm, $color: $text-hover);
+      }
+    }
+  
+    &__button {
+      margin-bottom: $spacing-md;
+      @include button-style(
+        $bg: $button-bg-light-d,
+        $color: $button-text,
+        $bg-hover: $button-bg-light-dd,
+        $b-radius: $border-radius-xl,
+        $scale: 1.5,
+        $btn-font-size: $font-size-lg
+      );
+    }
+  }

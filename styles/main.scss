@@ -1,0 +1,33 @@
+// main.scss
+
+// Importar variables y configuración general
+@use 'utilities/variables' as * ;
+@use 'utilities/mixins' as *;
+@use 'utilities/functions' as *;
+@use 'utilities/helpers' as *;
+
+// Importar las reglas base
+@use 'base/base' as *;
+@use 'base/typography' as *;
+
+// Importar componentes
+@use 'components/button' as *;
+@use 'components/cards' as *;
+
+// Importar layouts
+@use 'layouts/header' as *;
+@use 'layouts/footer' as *;
+
+// Importar las páginas específicas
+@use 'page/login' as *;
+@use 'page/register' as *;
+@use 'page/home' as *;
+@use 'page/products' as *;
+
+// Importar dependencias de terceros (vendors)
+@use 'vendors/swiper' as *;
+
+// Importar temas
+@use 'themes/light-theme' as *;
+@use 'themes/dark-theme' as *;
+

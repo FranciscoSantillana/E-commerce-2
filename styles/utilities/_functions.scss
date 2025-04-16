@@ -1,0 +1,21 @@
+@use "variables" as *;
+/**
+ * Función: get-shadow-color
+ *
+ * Retorna el color de sombra según el parámetro recibido.
+ *
+ * @param {String} $color-name - Especifica el tipo de sombra: "light", "medium" o cualquier otro valor para sombra fuerte.
+ * @return {Color} - Devuelve el color correspondiente basado en la paleta definida.
+ *
+ * Ejemplo:
+ *   get-shadow-color("light"); // Retorna $shadow-color-light
+ */
+ @function get-shadow-color($color-name) {
+    @if $color-name == "light" {
+      @return $shadow-color-light;
+    } @else if $color-name == "medium" {
+      @return $shadow-color-medium;
+    } @else  {
+      @return $shadow-color-strong;
+    }
+  }

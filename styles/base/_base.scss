@@ -1,0 +1,25 @@
+@use "../utilities/variables" as *;
+@use "typography" as *;
+@use "../utilities/helpers" as *;
+
+/*  Estilos globales*/
+* {
+    box-sizing: border-box;
+    font-family: $font-family-base;
+    text-decoration: none;
+    @extend %reset-list;
+  }
+  body {
+    color: $text-color;
+    background: $background-color;
+  }
+  main {
+    background: $background-secondary-color;
+  }
+  a {
+    color: $text-color;
+    text-decoration: none;
+    &:visited {
+      color: inherit;
+    }
+  }

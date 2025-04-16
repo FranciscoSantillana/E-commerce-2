@@ -1,0 +1,53 @@
+@use "variables" as *;
+@use "../base/typography" as *;
+
+// ==================
+// EXTENDS
+// ==================
+
+/**
+ * Extend: %link_header
+ *
+ * Placeholder reutilizable para estilos de enlaces en el header.
+ * Elimina el subrayado, aplica una transición suave y define estilos para
+ * estados hover y active. Se utiliza con @extend para aplicar estos estilos
+ * a cualquier selector que necesite mantener la consistencia visual en el header.
+ *
+ * Ejemplo de uso:
+ * .header-link {
+ *   @extend %link_header;
+ * }
+ */
+ %link_header {
+    text-decoration: none;
+    transition: color 0.3s ease;
+  
+    &:hover {
+      background-color: $hover-color;
+      color: $header-link-hover-color;
+    }
+  
+    &:active {
+      background-color: $active-color;
+      color: $header-link-active;
+    }
+  }
+  
+/**
+ * Extend: %reset-list
+ *
+ * Placeholder para resetear los estilos de listas. Elimina el estilo de lista,
+ * el padding y el margin por defecto para obtener una base limpia y poder
+ * aplicar estilos personalizados sin interferencias.
+ *
+ * Ejemplo de uso:
+ * ul {
+ *   @extend %reset-list;
+ * }
+ */
+%reset-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  

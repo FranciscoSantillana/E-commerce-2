@@ -1,0 +1,19 @@
+// ==================
+// TIPOGRAFÍA Y TAMAÑOS
+// ==================
+
+// TIPOGRAFÍA BASE
+$font-family-base: "Raleway", Arial, Helvetica, sans-serif; // Fuente base
+$font-optical-sizing: auto;
+$font-weight: normal;
+$font-style: normal;
+
+// TAMAÑOS DE TEXTO
+$font-size-base: 1rem; // Tamaño base (16px)
+$font-size-xxs: $font-size-base * 0.75; // Tamaño extra pequeño (12px)
+$font-size-xs: $font-size-base * 0.8125; // Tamaño pequeño (13px)
+$font-size-sm: $font-size-base * 0.875; // Tamaño mediano (14px)
+$font-size-lg: $font-size-base * 1.125; // Tamaño grande (18px)
+$font-size-xl: $font-size-base * 1.5; // Tamaño extra grande (24px)
+$font-size-xxl: $font-size-base * 2; // 2rem (32px)
+$font-size-xxxl: $font-size-base * 2.5; // 2.5rem (40px)

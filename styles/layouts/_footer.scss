@@ -1,0 +1,111 @@
+@use "../utilities/variables" as *;
+@use "../base/typography" as *;
+@use "../utilities/mixins" as *;
+@use "../utilities/helpers" as *;
+
+.footer {
+    background-color: $footer-background;  
+    &__container {
+      @include flex-center($flex-direction: column);
+      gap: $spacing-sm;
+      padding: $spacing-md;
+    }
+    &__menu {
+      @include grid-center(
+        $columns: 3,
+        $fr: 1fr,
+        $gap: $spacing-md,
+        $align-items: start
+      );
+      justify-items: center;
+      $align-items: start;
+      width: 75%;
+      // Responsividad
+      @include respond-to(sm) {
+        width: 100%;
+        grid-template-columns: 1fr 1fr; // Dos columnas en pantallas pequeñas
+      }
+  
+      @include respond-to(md) {
+        width: 100%;
+        grid-template-columns: 1fr 1fr; // Dos columnas en pantallas medianas
+      }
+  
+      @include respond-to(lg) {
+        width: 100%;
+        grid-template-columns: 1fr 1fr 1fr; // Tres columnas en pantallas grandes
+      }
+    }
+    &__contact,
+    &__info,
+    &__account {
+      @include flex-center($flex-direction: column, $align-items: start);
+      gap: $spacing-md;
+    }
+    &__list {
+      @include flex-center($flex-direction: column, $align-items: start);
+      gap: $spacing-sm;
+      &--item {
+        @include text-style(
+          $font-size: $font-size-sm,
+          $font-weight: 300,
+          $color: $text-list
+        );
+        a {
+          @include text-style(
+            $font-size: $font-size-sm,
+            $font-weight: 300,
+            $color: $text-list
+          );
+          @include transition($property: color, $duration: 0.3s);
+          &:hover {
+            @include text-style(
+              $font-size: $font-size-sm,
+              $font-weight: 300,
+              $color: $text-list-hover
+            );
+          }
+        }
+      }
+    }
+    &__title {
+      @include text-style(
+        $font-size: $font-size-sm,
+        $font-weight: bold,
+        $color: $text-link
+      );
+      text-transform: uppercase;
+    }
+  
+    &__copyright {
+      @include flex-center($justify-content: space-between);
+      padding-top: $spacing-xl;
+      border-top: $border-focus;
+      width: 75%;
+      @include respond-to(sm) {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+    &__text {
+      @include text-style(
+        $font-size: $font-size-xxs,
+        $color: $text-register-light
+      );
+    }
+    &__link {
+      a {
+        @include text-style(
+          $font-size: $font-size-xxs,
+          $color: $text-register-light
+        );
+        &:hover {
+          @include text-style(
+            $font-size: $font-size-xxs,
+            $color: $text-register-light-d
+          );
+          text-decoration: underline;
+        }
+      }
+    } 
+}
