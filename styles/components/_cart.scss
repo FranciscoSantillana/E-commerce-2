@@ -1,0 +1,132 @@
+@use "../utilities/variables" as *;
+@use "../base/typography" as *;
+@use "../utilities/mixins" as *;
+@use "../utilities/helpers" as *;
+
+.cart{
+    position: fixed;
+    right: -600px;
+    top: 0;
+    width: 500px;
+    height: 100%;
+    background-color: $header-background;
+    @include box-shadow( $horizontal:-2px,   $vertical:0, $blur:5px,$color-name:medium);
+    padding: $spacing-lg;
+    @include transition( $property: right, $duration: .5s, $timing-function: ease-in);
+    z-index: 9999;
+    border-radius: $border-radius-lg  0 0 $border-radius-lg;
+    border: 2px ridge darken($header-background, 10%);
+    
+    &.active{
+       right: 0;  
+       transform: translateX(0);        
+    }
+
+    &__title{
+        @include text-style(
+            $font-size: $font-size-xxl,
+            $font-weight: bold,
+            $line-height: 2,
+            $color: $text-link,
+            $letter-spacing: 1.5,
+        );
+        border-bottom: 2px solid $text-link-lighten; 
+        padding-bottom: $spacing-xs;
+    }
+    &__items{
+        height: 80%;
+        overflow-y:auto;
+        padding-right: $spacing-xs;
+        margin-left: $spacing-xs;
+    }
+    &__item{
+        @include flex-center(
+        $align-items: center,
+        $justify-content: space-between,
+        $flex-direction: row 
+        );
+        margin-bottom: $spacing-md;
+        padding-bottom:$spacing-md ;
+        border-bottom:1px solid #ffddae;
+        & img{
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            margin-right:10px ;
+        }
+        & p {
+            @include text-style(
+                $font-size: $font-size-xs,
+                $font-weight: bold,
+                $line-height: 1.5,
+                $color: $text-color,
+                $letter-spacing: 0,
+                $align: center
+            );
+            &:nth-child(3){
+                @include text-style(
+                    $font-size: $font-size-xs,
+                    $font-weight: normal,
+                    $line-height: 1.5,
+                    $color: $text-register-light-d,
+                    $letter-spacing: 0,
+                    $align: center
+                );
+            }
+            &:last-child {
+                @include text-style(
+                  $font-size: $font-size-xs,
+                  $font-weight: bold,
+                  $line-height: 1.5,
+                  $color: $text-register-light-d,
+                  $letter-spacing: 0,
+                  $align: center
+                );
+            }
+        }
+    }
+    &__remove--item{
+        @include button-style(
+            $bg: transparent,
+            $color: $icon-color,
+            $bg-hover: transparent,
+            $disabled: $button-disabled,
+            $b-radius: $border-radius,
+            $scale: 1,
+            $opacity: 0.8,
+            $btn-font-size: $font-size-base,
+            $btn-line-height: 1.2,
+            $btn-letter-spacing: 1
+          )
+    }
+    &__checkout--btn{
+        @include button-style(
+            $bg: $button-bg-light-d,
+            $color: $text-list,
+            $bg-hover: $button-bg-light-dd,
+            $b-radius: $border-radius-lg,
+            $scale: 1,
+            $opacity: 1,
+            $btn-font-size: $font-size-sm,
+            $btn-line-height: 1.75,
+            $btn-letter-spacing: 2px
+          );
+        margin-top:$spacing-md;
+        width: 100%;
+       border:$border-focus;          
+    }
+    &__total{
+        @include text-style(
+            $font-size: $font-size-lg,
+            $font-weight: bold,
+            $line-height:  1.6,
+            $color: $text-list,
+            $letter-spacing: 2px,
+        );
+        text-decoration: underline;
+        -webkit-text-decoration-color: $text-list; /* Safari */  
+        text-decoration-color:$text-list;
+        text-decoration-thickness: 2px;
+
+    }
+}

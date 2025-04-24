@@ -41,11 +41,8 @@ $icon-color-dark: darken($icon-color, 10%); // Versión 10% más oscura del colo
 $icon-color-like: #e62e1b; // Color para íconos de "me gusta" (bermellón)
 $icon-hover-color: #d5c7a3; // Color al hacer hover sobre íconos
 $icon-link-light: #d4f6ff; // Color para íconos o enlaces claros
-
-// ==================
-// TAMAÑOS
-// ==================
-
+$icon-star-fas:#0f172a;// Color para estrellas llenas 
+$icon-star-far:#f7f9fb;// Color blanco para estrellas vacías 
 
 // ==================
 // ESPACIADOS ESCALABLES

@@ -2,7 +2,10 @@ import "../js/header.js";
 import "../js/login.js";
 import "../js/register.js";
 import "../js/formValidation.js";
-import "../js/products.js";
+import { initProducts } from "../js/products.js";
+import { initCart } from "../js/cart.js";
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
     // Verifica si NO estamos en las páginas de login, register 
@@ -14,4 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
     }
+    // Inicializar productos y carrito
+    initProducts();
+    initCart();
 });

@@ -12,7 +12,7 @@
 
 // Importar componentes
 @use 'components/button' as *;
-@use 'components/cards' as *;
+@use 'components/cart' as *;
 
 // Importar layouts
 @use 'layouts/header' as *;
@@ -27,7 +27,4 @@
 // Importar dependencias de terceros (vendors)
 @use 'vendors/swiper' as *;
 
-// Importar temas
-@use 'themes/light-theme' as *;
-@use 'themes/dark-theme' as *;
 

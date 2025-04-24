@@ -57,151 +57,28 @@
         <a href="login.html" class="header__icon" aria-label="Perfil">
           <i class="fa-solid fa-user"></i>
         </a>
-        <a href="#" class="header__icon" aria-label="Carrito">
-          <i class="fa-solid fa-cart-shopping"></i>
-          <span class="number__items" id="number-items"></span>
+        <a href="#" class="header__icon header__cart" aria-label="Carrito">
+          <i class="fa-solid fa-cart-shopping" ></i>
+          <span class="header__number--items" id="number--items"></span>
         </a>
+
       </section>
     </header>
     <main>
-   
-      <section class="product">
-        <article class="product__card" id="product__card">
-      
+      <!-- Productos a la venta -->
+      <section class="product" id="product">
+      </section>
+      <!-- Carrito de compras -->
+      <section class=" cart cart__sidebar" id="cart__sidebar">
+        <h2 class="cart__title"><b> Tu Carrito</b></h2>
+        <article class="cart__items" id="cart__items">
+
         </article>
-        <article class="product__card">
-          <div class="product__image">
-            <img
-              src="./img/producto/910-004940.jpg"
-              alt="910-004940"
-              class="product__img"
-            />
-            <button class="product__like" aria-label="Me gusta">
-              <i class="fa-solid fa-heart"></i>
-            </button>
-          </div>
-          <div class="product__info">
-            <h3 class="product__name">Nombre del Producto</h3>
-            <p class="product__price">$19.99</p>
-            <div class="product__rating">
-              <span class="fas fa-star" aria-label="Estrella llena"></span>
-              <span class="fas fa-star" aria-label="Estrella llena"></span>
-              <span class="fas fa-star" aria-label="Estrella llena"></span>
-              <span class="far fa-star" aria-label="Estrella vacía"></span>
-              <span class="far fa-star" aria-label="Estrella vacía"></span>
-            </div>
-            <button class="product__btn" aria-label="Agregar al carrito">
-              Agregar al carrito
-            </button>
-          </div>
+        <article class="cart__total">
+          <h3>TOTAL:$ <span id="cart--total"></span></h3>
+          <button class="cart__checkout--btn" id="payBtn">PAGAR</button>
         </article>
-        <article class="product__card">
-          <div class="product__image">
-            <img
-              src="./img/producto/910-001601.jpg"
-              alt="910-001601"
-              class="product__img"
-            />
-            <button class="product__like" aria-label="Me gusta">
-              <i class="fa-solid fa-heart"></i>
-            </button>
-          </div>
-          <div class="product__info">
-            <h3 class="product__name">Nombre del Producto</h3>
-            <p class="product__price">$19.99</p>
-            <div class="product__rating">
-              <span class="fas fa-star" aria-label="Estrella llena"></span>
-              <span class="fas fa-star" aria-label="Estrella llena"></span>
-              <span class="fas fa-star" aria-label="Estrella llena"></span>
-              <span
-                class="fa-star-half"
-                aria-label="Estrella mitad llena"
-              ></span>
-              <span class="far fa-star" aria-label="Estrella vacía"></span>
-            </div>
-            <button class="product__cart" aria-label="Agregar al carrito">
-              Agregar al carrito
-            </button>
-          </div>
-        </article>
-        <article class="product__card">
-          <div class="product__image">
-            <img
-              src="./img/producto/910-002225.png"
-              alt="910-002225"
-              class="product__img"
-            />
-            <button class="product__like" aria-label="Me gusta">
-              <i class="fa-solid fa-heart"></i>
-            </button>
-          </div>
-          <div class="product__info">
-            <h3 class="product__name">Nombre del Producto</h3>
-            <p class="product__price">$19.99</p>
-            <div class="product__rating">
-              <span class="fas fa-star" aria-label="Estrella llena"></span>
-              <span class="fas fa-star" aria-label="Estrella llena"></span>
-              <span class="fas fa-star" aria-label="Estrella llena"></span>
-              <span class="far fa-star" aria-label="Estrella vacía"></span>
-              <span class="far fa-star" aria-label="Estrella vacía"></span>
-            </div>
-            <button class="product__cart" aria-label="Agregar al carrito">
-              Agregar al carrito
-            </button>
-          </div>
-        </article>
-        <article class="product__card">
-          <div class="product__image">
-            <img
-              src="./img/producto/910-003635.jpg"
-              alt="910-003635"
-              class="product__img"
-            />
-            <button class="product__like" aria-label="Me gusta">
-              <i class="fa-solid fa-heart"></i>
-            </button>
-          </div>
-          <div class="product__info">
-            <h3 class="product__name">Nombre del Producto</h3>
-            <p class="product__price">$19.99</p>
-            <div class="product__rating">
-              <span class="fas fa-star" aria-label="Estrella llena"></span>
-              <span class="fas fa-star" aria-label="Estrella llena"></span>
-              <span class="fas fa-star" aria-label="Estrella llena"></span>
-              <span class="far fa-star" aria-label="Estrella vacía"></span>
-              <span class="far fa-star" aria-label="Estrella vacía"></span>
-            </div>
-            <button class="product__cart" aria-label="Agregar al carrito">
-              Agregar al carrito
-            </button>
-          </div>
-        </article>
-        <article class="product__card">
-          <div class="product__image">
-            <img
-              src="./img/producto/910-004053.jpg"
-              alt="910-004053"
-              class="product__img"
-            />
-            <button class="product__like" aria-label="Me gusta">
-              <i class="fa-solid fa-heart"></i>
-            </button>
-          </div>
-          <div class="product__info">
-            <h3 class="product__name">Nombre del Producto</h3>
-            <p class="product__price">$19.99</p>
-            <div class="product__rating">
-              <span class="fas fa-star" aria-label="Estrella llena"></span>
-              <span class="fas fa-star" aria-label="Estrella llena"></span>
-              <span class="fas fa-star" aria-label="Estrella llena"></span>
-              <span class="far fa-star" aria-label="Estrella vacía"></span>
-              <span class="far fa-star" aria-label="Estrella vacía"></span>
-            </div>
-            <button class="product__cart" aria-label="Agregar al carrito">
-              Agregar al carrito
-            </button>
-          </div>
-        </article>
+
       </section>
     </main>
 

@@ -88,6 +88,22 @@
       }
     }
   }
+  &__cart{
+    position: relative; 
+    padding: $spacing-md;
+  }
+  &__number--items{
+    position: absolute;  // Lo posicionamos de manera absoluta 
+    top: -4px;           // Ajustar el círculo ligeramente hacia arriba 
+    right: -2px;         // Ajustar el círculo ligeramente hacia la derecha 
+    width: 20px;         
+    height: 20px;        
+    background-color: $header-circle;
+    border-radius: 50%;  
+    justify-content: center;  // Centra el número dentro del círculo
+    @include text-style($font-size:$font-size-sm, $font-weight:bold,$align:center);
+    z-index: 1;  // Asegura que el círculo quede por encima del icono   
+  }
   // Ícono hamburguesa (versión móvil)
   &__menu--icon{
     color: $icon-color;
@@ -102,7 +118,6 @@
   // Acciones (iconos: buscar, usuario, carrito)
   &__actions {
   @include flex-center($justify-content: space-between);
-  
   gap: $spacing-md; // Espacio entre los iconos
 
   .header__icon {

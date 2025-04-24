@@ -5,21 +5,28 @@
 @use "../utilities/helpers" as *;
 //Products
 .product {
+    width: 95%;
     margin: 0 auto;
-    padding: $spacing-lg;
+    padding: 20px;
     @include grid-center(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    @include respond-to(md) {
+      grid-template-columns: 1fr; // Hacer que todos los productos se apilen en pantallas pequeñas
+      padding: 10px; // Reducir el padding en pantallas pequeñas
+    }
     &__card {
       cursor: pointer;
       @include text-style();
       @include transition($duration: 0.5s);
-      @include box-shadow($color-name: "light");
+      @include box-shadow($color-name: light);
       box-sizing: border-box;
       margin: $spacing-lg;
       background: $background-color;
       border-radius: $border-radius-xl;
+      
       &:hover {
         transform: scale(1.05);
-        @include box-shadow($color-name: "medium");
+        @include box-shadow($color-name: medium);
       }
       .product__image {
         position: relative;
@@ -27,6 +34,8 @@
         width: 100%;
         height: auto;
         border-radius: $border-radius-xl;
+        margin-bottom: $spacing-md;
+
         .product__like {
           @include icon-style(
             $size: $spacing-sm,
@@ -36,8 +45,8 @@
             $color-hover: $icon-color-like
           );
           position: absolute;
-          top: 20px;
-          left: 20px;
+          top: 10px;
+          left: 10px;
           background: transparent;
           border: none;
           cursor: pointer;
@@ -45,12 +54,15 @@
           color: $primary-color;
           z-index: 10;
           &.liked {
-            color: $icon-color-like !important; // Rojo permanente al hacer clic
+            color: $icon-color-like !important; 
           }
         }
         .product__img {
-          width: 100%;
-          height: auto;
+          @include responsive-media($ratio: 5%,$width: 100%)
+          {
+            object-fit: cover;
+            border-radius: $border-radius;
+          }
         }
       }
   
@@ -86,27 +98,27 @@
         .product__rating {
           .fas.fa-star,
           .fas.fa-star-half-alt {
-            color: #334155; /* color para estrellas llenas */
-            font-size: 20px;
-            margin-right: 4px;
+            color: $icon-star-fas; 
+            font-size: $font-size-xxs;
+            margin-right: $spacing-xs;
           }
   
           .far.fa-star {
-            color: #ffffff; /* color blanco para estrellas vacías */
-            font-size: 20px;
-            margin-right: 4px;
+            color: $icon-star-far; 
+            font-size: $font-size-xxs;
+            margin-right: $spacing-xs;
           }
   
           .fa-star-half::before {
-            content: "\f005"; /* Estrella sólida */
+            content: "\f005"; //Estrella sólida 
             font-family: "Font Awesome 6 Free";
             font-weight: 900;
-            font-size: 20px;
+            font-size: $font-size-xxs;
             background: linear-gradient(
               to right,
-              #334155 50%,
-              #ffffff 50%
-            ); /* Dividirla mitad */
+              $icon-star-fas 50%,
+              $icon-star-far 50%
+            ); // Dividirla mitad 
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -114,19 +126,15 @@
           }
         }
   
-        .product__cart {
-          margin-top: 1rem;
-          padding: 0.5rem 1rem;
-          background-color: green;
-          border: none;
-          cursor: pointer;
-          color: white;
-          font-size: 1rem;
-          border-radius: 5px;
-  
-          &:hover {
-            background-color: red;
-          }
+        .product__btn{
+          @include button-style(
+            $bg:$button-background,              
+            $color:$button-text,            
+            $bg-hover:$button-background-hover,                
+            $b-radius:$border-radius-sm,                
+            $scale: 1.1,                
+            $btn-font-size:$font-size-base,               
+          );
         }
       }
     }

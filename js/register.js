@@ -8,13 +8,21 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==================
   // Validación del Teléfono con intl-tel-input
   // ==================
+  /**
+   * Valida el campo del teléfono para asegurarse de que cumple con el formato adecuado.
+   * Aplica clases `valid` o `invalid` al campo de teléfono según si el valor es válido.
+   *
+   * @function
+   * @returns {void}
+   */
   const phoneInput = document.getElementById("phone");
   const phoneRegex = /^\+?[0-9]{10,15}$/;
 
   const iti = window.intlTelInput(phoneInput, {
     initialCountry: "mx",
     separateDialCode: true,
-    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/25.3.1/js/utils.js",
+    utilsScript:
+      "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/25.3.1/js/utils.js",
   });
 
   phoneInput.addEventListener("input", () => {
@@ -37,12 +45,20 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==================
   // Validación de Contraseñas
   // ==================
+  /**
+   * Valida el campo de la contraseña, asegurándose de que cumpla con las condiciones de seguridad (mínimo 8 caracteres, al menos 1 letra mayúscula, 1 número y 1 carácter especial).
+   * Aplica clases `valid` o `invalid` al campo de la contraseña según si el valor es válido.
+   *
+   * @function
+   * @returns {void}
+   */
   const passwordInput = document.getElementById("password");
   const passwordConfirmInput = document.getElementById("passwordConfirmation");
   const passwordHint = document.getElementById("passwordHint");
   const passwordConfirmHint = document.getElementById("passwordConfirmHint");
 
-  const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,64}$/;
+  const passwordRegex =
+    /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,64}$/;
 
   const validatePassword = () => {
     const passwordValue = passwordInput.value.trim();
@@ -51,7 +67,13 @@ document.addEventListener("DOMContentLoaded", () => {
     passwordInput.classList.toggle("invalid", !isValid);
     checkFormValidity(form);
   };
-
+  /**
+   * Valida el campo de confirmación de la contraseña, asegurándose de que sea igual a la contraseña principal.
+   * Aplica clases `valid` o `invalid` al campo de confirmación según si coincide con la contraseña.
+   *
+   * @function
+   * @returns {void}
+   */
   const validatePasswordConfirmation = () => {
     const pass = passwordInput.value.trim();
     const confirm = passwordConfirmInput.value.trim();
@@ -61,14 +83,20 @@ document.addEventListener("DOMContentLoaded", () => {
     checkFormValidity(form);
   };
 
-  passwordInput.addEventListener("focus", () => (passwordHint.style.display = "block"));
+  passwordInput.addEventListener(
+    "focus",
+    () => (passwordHint.style.display = "block")
+  );
   passwordInput.addEventListener("blur", () => {
     if (!passwordInput.value) passwordHint.style.display = "none";
     validatePassword();
   });
   passwordInput.addEventListener("input", validatePassword);
 
-  passwordConfirmInput.addEventListener("focus", () => (passwordConfirmHint.style.display = "block"));
+  passwordConfirmInput.addEventListener(
+    "focus",
+    () => (passwordConfirmHint.style.display = "block")
+  );
   passwordConfirmInput.addEventListener("blur", () => {
     if (!passwordConfirmInput.value) passwordConfirmHint.style.display = "none";
     validatePasswordConfirmation();
@@ -78,6 +106,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==================
   // Validación de Nombre y Apellido
   // ==================
+  /**
+   * Valida campos de texto como nombre y apellido, asegurándose de que contengan solo caracteres alfabéticos y no estén vacíos.
+   * Aplica clases `valid` o `invalid` según si el valor es válido.
+   *
+   * @function
+   * @param {HTMLInputElement} input - El campo de texto que se está validando.
+   * @returns {void}
+   */
   const nameInput = document.getElementById("name");
   const lastnameInput = document.getElementById("last-name");
 
@@ -89,13 +125,16 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   nameInput.addEventListener("input", () => validateTextInput(nameInput));
-  lastnameInput.addEventListener("input", () => validateTextInput(lastnameInput));
+  lastnameInput.addEventListener("input", () =>
+    validateTextInput(lastnameInput)
+  );
 
   // ==================
   // Validación del Email
   // ==================
   const emailInput = document.getElementById("email");
-  const emailRegex = /^[-\w.%+]{1,64}@(?!-)(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+  const emailRegex =
+    /^[-\w.%+]{1,64}@(?!-)(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
   emailInput.addEventListener("input", () => {
     const email = emailInput.value.trim();
@@ -123,6 +162,22 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==================
   // Validación de Dirección
   // ==================
+  /**
+   * Valida los campos de selección (país, ciudad) para asegurarse de que se haya seleccionado una opción.
+   * Aplica clases `valid` o `invalid` según si el campo tiene un valor seleccionado.
+   *
+   * @function
+   * @param {HTMLSelectElement} input - El campo de selección que se está validando.
+   * @returns {void}
+   */
+  /**
+   * Valida los campos de texto (dirección, colonia) asegurándose de que no estén vacíos.
+   * Aplica clases `valid` o `invalid` según si el valor es válido.
+   *
+   * @function
+   * @param {HTMLInputElement} input - El campo de texto que se está validando.
+   * @returns {void}
+   */
   const countryInput = document.getElementById("country");
   const cityInput = document.getElementById("city");
   const cologneInput = document.getElementById("cologne");
@@ -165,6 +220,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==================
   // Eventos Generales del Formulario
   // ==================
+  /**
+   * Valida los campos de texto (dirección, colonia) asegurándose de que no estén vacíos.
+   * Aplica clases `valid` o `invalid` según si el valor es válido.
+   *
+   * @function
+   * @param {HTMLInputElement} input - El campo de texto que se está validando.
+   * @returns {void}
+   */
   form.addEventListener("input", () => toggleRegisterButton(form));
   form.addEventListener("submit", registerUser);
 });
@@ -172,6 +235,14 @@ document.addEventListener("DOMContentLoaded", () => {
 // ==================
 // Función que maneja el envío del formulario
 // ==================
+/**
+ * Maneja el envío del formulario de registro.
+ * Si el formulario es válido, muestra una alerta de éxito con el nombre del usuario y redirige al inicio.
+ *
+ * @function
+ * @param {Event} event - El evento del formulario al ser enviado.
+ * @returns {void}
+ */
 function registerUser(event) {
   event.preventDefault();
   const emailInput = document.getElementById("email");
