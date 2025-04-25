@@ -18,7 +18,7 @@ const header = document.querySelector("header");
  * @example
  * // Este código se ejecuta automáticamente en la carga de la página
  * // y activa el sticky header o ajusta la clase dependiendo de la ruta actual.
- */if (window.location.pathname === '/products.html') {
+ */if (window.location.pathname === 'products.html') {
   header.classList.add('products');
 } else {
   // Sticky Header en scroll (en páginas que no son productos)
