@@ -9,9 +9,9 @@
   padding: 100px 10% 90px;
   min-height: 100vh;
   @include respond-to(tablet) {
-    @include grid-center(1, 1fr, $spacing-md);
+    @include grid-center(2, 1fr, $spacing-md);
     text-align: center;
-    padding-top: 13rem;
+    padding-top: 10rem;
   }
 
   &__image img {
@@ -31,6 +31,7 @@
         margin: 0 auto; // centrado en móvil
       }
     }
+  
   }
   &__content {
     @include flex-center(
@@ -131,12 +132,22 @@ gap: $spacing-lg;
   }
   &__img{
      img{
-      @include responsive-media(){
+      @include responsive-media( $ratio: 56.25%, $selector: "img",$width: 100%, ){
         margin-top: 0;
         padding: $spacing-sm;
-        background: white;
-        border-radius:$border-radius $border-radius 0 0;  
+        background: $background-color;
+        border-radius:$border-radius $border-radius 0 0; 
       };
+      
+      @include respond-to( tablet) {
+        @include responsive-media( $selector: "img",  $width: 80%,){
+          margin-top: 0;
+          padding: $spacing-sm;
+          background: $background-color;
+          border-radius:$border-radius $border-radius 0 0;  
+          height: 25rem;
+        };
+        }
     }
     span{
       @include text-style(

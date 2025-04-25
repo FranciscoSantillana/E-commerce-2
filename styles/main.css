@@ -962,11 +962,11 @@ a:visited {
 @media (min-width: 769px) and (max-width: 1024px) {
   .home {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
     align-items: center;
     text-align: center;
-    padding-top: 13rem;
+    padding-top: 10rem;
   }
 }
 .home__image img {
@@ -1173,7 +1173,7 @@ a:visited {
   overflow: hidden;
   margin-top: 0;
   padding: 8px;
-  background: white;
+  background: #ffffff;
   border-radius: 8px 8px 0 0;
 }
 .cluster__img img img {
@@ -1185,6 +1185,29 @@ a:visited {
   -o-object-fit: cover;
      object-fit: cover;
   display: block;
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .cluster__img img {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    overflow: hidden;
+    margin-top: 0;
+    padding: 8px;
+    background: #ffffff;
+    border-radius: 8px 8px 0 0;
+    height: 25rem;
+  }
+  .cluster__img img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    display: block;
+  }
 }
 .cluster__img span {
   font-size: 1.5rem;
