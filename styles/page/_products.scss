@@ -5,6 +5,7 @@
 @use "../utilities/helpers" as *;
 //Products
 .product {
+    min-height: 80vh ;
     width: 95%;
     margin: 0 auto;
     padding: 20px;
@@ -20,7 +21,7 @@
       @include transition($duration: 0.5s);
       @include box-shadow($color-name: light);
       box-sizing: border-box;
-      margin: $spacing-lg;
+      margin: $spacing-md;
       background: $background-color;
       border-radius: $border-radius-xl;
       
